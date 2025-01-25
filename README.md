@@ -1,2 +1,2 @@
-# ChocolateMilkRankings
-My opinions are fact and should be treated as such.
+# Chocolate Milk Rankings
+[https://lachiegraham.github.io](https://lachiegraham.github.io)
