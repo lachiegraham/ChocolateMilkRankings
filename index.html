@@ -1,2 +1,142 @@
-dropdown menu that lets you select by country or all at once, default should be australia
-then just rank by best to worst i think
+<!DOCTYPE html>
+<head>
+    <title>Lachie Graham's Chocolate Milk Rankings</title>
+    <style>
+        .listContainer {
+            padding: 0 calc(5vw); /* 5% view width padding */
+            display: flex; /* Use flexbox for horizontal layout */
+            justify-content: center;
+            gap: 20px; /* Space between images */
+            flex-wrap: wrap;
+        }
+        .image-container {
+            display: flex;
+            flex-direction: column; /* Stack image and text vertically */
+            align-items: center; /* Center text below image */
+            text-align: center; /* Center text within its container */
+        }
+        .image-container img {
+            max-width: 200px; /* Adjust image size as needed */
+            height: auto;
+        }
+        .image-container p {
+            max-width: 200px;
+            margin-top: 10px; /* Space between image and text */
+        }
+
+
+
+        h1 {
+            font-family: Impact;
+            font-size: 40px;
+            text-align: center;
+            padding: 0 0;
+        }
+        h2 {
+            font-size: 25px;
+            text-align: center;
+        }
+        h3 {
+            font-size: 10px;
+            text-align: center;
+            padding: 0 0;
+        }
+        .subtitle {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+
+
+<body>
+
+<h1>Lachie Graham's</h1>
+<h3>Very Official</h3>
+<h1>Chocolate Milk Ranking Website</h1>
+<!-- <h2>"My opinion is fact and should be treated as such"</h2> -->
+<p>eventually there will be some way of filtering/sorting but not yet</p>
+
+<!-- Main chunk of stuff -->
+<h2>Hall of Fame</h2>
+<!-- <p class="subtitle">Better than sex i think</p> -->
+<div class="listContainer">
+    <div class="image-container">
+        <img src="brownes_gold.jpg" alt="Brownes Dairy Gold">
+        <p>Brownes Dairy 'Gold'</p>
+    </div>
+    <div class="image-container">
+        <img src="oak_choc.jpg" alt="OAK Chocolate">
+        <p>OAK 'Chocolate'</p>
+    </div>
+    <div class="image-container">
+        <img src="puhoi_choc.jpg" alt="placeholder">
+        <p>NZ chocolate milk</p>
+    </div>
+</div>
+<p>I can't remember which of the NZ milks was the good one<br>
+    but it's either Puhoi Valley 'Real Chocolate' or <br>
+    it's Lewis Road Creamery 'Fresh Chocolate Milk' <br>
+I'm leaning towards it being the Puhoi Valley one idk</p>
+
+<h2>Good</h2>
+<p class="subtitle">These are all Graham approved.</p>
+<div class="listContainer">
+    <div class="image-container">
+        <img src="placeholder.png" alt="placeholder">
+        <p>placeholder</p>
+    </div>
+    <div class="image-container">
+        <img src="placeholder.png" alt="placeholder">
+        <p>placeholder</p>
+    </div>
+    <div class="image-container">
+        <img src="placeholder.png" alt="placeholder">
+        <p>placeholder</p>
+    </div>
+</div>
+
+<h2>Mid</h2>
+<p class="subtitle">I would only buy these if the good ones are sold out.</p>
+<div class="listContainer">
+    <div class="image-container">
+        <img src="placeholder.png" alt="placeholder">
+        <p>placeholder</p>
+    </div>
+    <div class="image-container">
+        <img src="placeholder.png" alt="placeholder">
+        <p>placeholder</p>
+    </div>
+    <div class="image-container">
+        <img src="placeholder.png" alt="placeholder">
+        <p>placeholder</p>
+    </div>
+</div>
+
+<h2>Hall of Shame</h2>
+<p class="subtitle">I do not recommend these. At all.</p>
+<div class="listContainer">
+    <div class="image-container">
+        <img src="placeholder.png" alt="placeholder">
+        <p>placeholder</p>
+    </div>
+    <div class="image-container">
+        <img src="placeholder.png" alt="placeholder">
+        <p>placeholder</p>
+    </div>
+    <div class="image-container">
+        <img src="placeholder.png" alt="placeholder">
+        <p>placeholder</p>
+    </div>
+</div>
+
+</body>
+
+<!-- maybe its a js list of objects, the list is in order of best to worst -->
+ <!-- and then for filtering we can look inside the objects -->
+  <!-- like there has to be some location metadata stored in each chocolate milk -->
+
+  <!-- but i want to be able to have a description of each chocolate milk -->
+<!-- so probably yes we can put that inside the object it's just a  -->
+ <!-- question of how do we show the description in html land -->
