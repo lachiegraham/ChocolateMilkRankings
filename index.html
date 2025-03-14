@@ -65,7 +65,7 @@
     </style>
 </head>
 
-
+<!-- https://www.reddit.com/r/anchorage/comments/1cqxha4/the_chocolate_milk_situation/ -->
 
 <body>
 <div class="logo">
@@ -81,9 +81,10 @@
 <button type="button" onclick="setButton(this, 'limited-edition')">Limited Editions</button>
 </h2>
 <script>
-    function setButton(clickedButton, filter) {
-    const buttons = document.querySelectorAll('#button-group button'); // Select buttons within the group
+function setButton(clickedButton, filter) {
+    const buttons = document.querySelectorAll('#button-group button');
     const milks = document.querySelectorAll('.image-container')
+    
     // filter
     milks.forEach(milk => {
         const milkFilters = milk.dataset.filters;
@@ -105,7 +106,7 @@
             button.disabled = false;
         }
     });
-    }
+}
 </script>
 
 <!-- Main chunk of stuff -->
@@ -161,11 +162,15 @@
     </div>
     <div class="image-container" data-filters="">
         <img src="classic_strawberry.jpg" alt="Classic Strawberry">
-        <p>Classic<br>'Strawberry'</p>
+        <p>Dairy Farmers<br>'Classic Strawberry'</p>
     </div>
     <div class="image-container" data-filters="limited-edition">
         <img src="oak_milkybar.jpg" alt="Oak Milkybar">
         <p>OAK<br>'Milkybar'</p>
+    </div>
+    <div class="image-container" data-filters="chocolate international">
+        <img src="darigold_oldfashioned.jpg" alt="Dairgold Old Fashioned">
+        <p>Darigold<br>'Old Fashioned Chocolate'</p>
     </div>
 </div>
 
@@ -190,7 +195,7 @@
     </div>
     <div class="image-container" data-filters="chocolate">
         <img src="classic_choc.jpg" alt="Classic Chocolate">
-        <p>Classic<br>'Chocolate'</p>
+        <p>Dairy Farmers<br>'Classic Chocolate'</p>
     </div>
     <div class="image-container" data-filters="">
         <img src="oak_vanilla.jpg" alt="Oak Vanilla Malt">
@@ -199,6 +204,10 @@
     <div class="image-container" data-filters="limited-edition">
         <img src="bigm_popcorn.jpg" alt="Big M Salted Caramel Popcorn">
         <p>Big M<br>'Salted Caramel Popcorn'</p>
+    </div>
+    <div class="image-container" data-filters="international chocolate">
+        <img src="darigold_chocolate.jpg" alt="Darigold Chocolate">
+        <p>Darigold<br>'Chocolate'</p>
     </div>
 </div>
 
