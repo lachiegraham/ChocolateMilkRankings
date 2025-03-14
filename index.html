@@ -26,6 +26,9 @@
 
 
 
+        .logo {
+            border: 20px outset rgb(255, 201, 65);
+        }
         h1 {
             font-family: Impact;
             font-size: 40px;
@@ -52,6 +55,12 @@
             color: blueviolet;
             font-family: verdana;
         }
+        button {
+            font-size: larger;
+        }
+        .hidden {
+            display: none;
+        }
 
     </style>
 </head>
@@ -59,12 +68,45 @@
 
 
 <body>
-
+<div class="logo">
 <h1>Lachie Graham's</h1>
 <h3>Very Official</h3>
 <h1>Chocolate Milk Ranking Website</h1>
+</div>
 <!-- <h2>"My opinion is fact and should be treated as such"</h2> -->
-<p>eventually there will be some way of filtering/sorting but not yet</p>
+ <h2 id="button-group">Filter options
+<button type="button" onclick="setButton(this, 'all')" disabled="true">All</button>
+<button type="button" onclick="setButton(this, 'chocolate')">Chocolate</button>
+<button type="button" onclick="setButton(this, 'international')">International</button>
+<button type="button" onclick="setButton(this, 'limited-edition')">Limited Editions</button>
+</h2>
+<script>
+    function setButton(clickedButton, filter) {
+    const buttons = document.querySelectorAll('#button-group button'); // Select buttons within the group
+    const milks = document.querySelectorAll('.image-container')
+    // filter
+    milks.forEach(milk => {
+        const milkFilters = milk.dataset.filters;
+
+        if (filter === 'all') {
+            milk.classList.remove('hidden');
+        } else if (milkFilters.includes(filter)) {
+            milk.classList.remove('hidden');
+        } else {
+            milk.classList.add('hidden');
+        }
+    });
+
+    // set button clicked to disabled, all others enabled
+    buttons.forEach(button => {
+        if (button === clickedButton) {
+            button.disabled = true;
+        } else {
+            button.disabled = false;
+        }
+    });
+    }
+</script>
 
 <!-- Main chunk of stuff -->
 <h2>Hall of Fame</h2>
@@ -72,27 +114,27 @@
     Me when</a></p>
 <!-- <p class="subtitle">Better than sex i think</p> -->
 <div class="listContainer">
-    <div class="image-container">
+    <div class="image-container" data-filters="limited-edition">
         <img src="brownes_gold.jpg" alt="Brownes Dairy Gold">
         <p>Brownes Dairy<br>'Gold'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="chocolate international">
         <img src="puhoi_choc.jpg" alt="Puhoi Valley Chocolate">
         <p>Puhoi Valley<br>'Real Chocolate'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="chocolate">
         <img src="oak_choc.jpg" alt="OAK Chocolate">
         <p>OAK<br>'Chocolate'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="limited-edition">
         <img src="oak_chocmint.jpg" alt="OAK Choc Mint">
         <p>OAK<br>'Choc Mint'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="chocolate">
         <img src="norco_choc.jpg" alt="Norco Chocolate">
         <p>Norco<br>'Chocolate'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="chocolate">
         <img src="bethune_lane_choc.png" alt="Bethune Lane Dairy">
         <p>Bethune Lane Dairy<br>'Belgian Chocolate + Milk'</p>
     </div>
@@ -101,27 +143,27 @@
 <h2>Good</h2>
 <p class="subtitle">These are all Graham approved.</p>
 <div class="listContainer">
-    <div class="image-container">
+    <div class="image-container" data-filters="chocolate">
         <img src="nedds_choc.jpg" alt="Nedd's Choccy Milk">
         <p>Nedd's<br>'Choccy Milk'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="">
         <img src="rokeby_vanilla.jpg" alt="Rokeby Vanilla">
         <p>Rokeby<br>'Vanilla Wafer'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="chocolate">
         <img src="bigm_choc.jpg" alt="Big M Chocolate">
         <p>Big M<br>'Original Chocolate'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="">
         <img src="rokeby_choc_honeycomb.jpg" alt="Rokeby Choc Honeycomb">
         <p>Rokeby<br>'Choc Honeycomb'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="">
         <img src="classic_strawberry.jpg" alt="Classic Strawberry">
         <p>Classic<br>'Strawberry'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="limited-edition">
         <img src="oak_milkybar.jpg" alt="Oak Milkybar">
         <p>OAK<br>'Milkybar'</p>
     </div>
@@ -130,31 +172,31 @@
 <h2>Mid</h2>
 <p class="subtitle">I would only buy these if the good ones are sold out.</p>
 <div class="listContainer">
-    <div class="image-container">
+    <div class="image-container" data-filters="chocolate">
         <img src="beanstalk_choc.jpg" alt="Beanstalk chocolate">
         <p>Beanstalk<br>'Iced Chocolate'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="chocolate">
         <img src="rokeby_choc.jpg" alt="Rokeby Chocolate">
         <p>Rokeby<br>'Dutch Chocolate'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="">
         <img src="oak_strawberry.jpg" alt="Oak Strawberry">
         <p>OAK<br>'Strawberry'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="chocolate">
         <img src="oak_plus.jpg" alt="Oak Plus Chocolate">
         <p>OAK<br>'PLUS Chocolate'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="chocolate">
         <img src="classic_choc.jpg" alt="Classic Chocolate">
         <p>Classic<br>'Chocolate'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="">
         <img src="oak_vanilla.jpg" alt="Oak Vanilla Malt">
         <p>OAK<br>'Vanilla Malt'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="limited-edition">
         <img src="bigm_popcorn.jpg" alt="Big M Salted Caramel Popcorn">
         <p>Big M<br>'Salted Caramel Popcorn'</p>
     </div>
@@ -163,11 +205,11 @@
 <h2>Hall of Shame</h2>
 <p class="subtitle">I do not recommend these. At all.</p>
 <div class="listContainer">
-    <div class="image-container">
+    <div class="image-container" data-filters="chocolate international">
         <img src="yoohoo_choc.png" alt="yoohoo chocolate">
         <p>yoohoo<br>'Chocolate Drink'</p>
     </div>
-    <div class="image-container">
+    <div class="image-container" data-filters="chocolate">
         <img src="hello_sunshine_dairy.jpg" alt="Hello Sunshine Dairy Chocolate">
         <p>Hello Sunshine Dairy<br>'Chocolate'</p>
     </div>
