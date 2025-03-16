@@ -57,6 +57,10 @@
         }
         button {
             font-size: larger;
+            color: rgb(60, 60, 60);
+        }
+        button:disabled {
+            color: rgb(210, 210, 210);
         }
         .hidden {
             display: none;
@@ -76,10 +80,10 @@
 <!-- <h2>"My opinion is fact and should be treated as such"</h2> -->
  <h2 id="button-group">Filter options
 <button type="button" onclick="setButton(this, 'all')" disabled="true">All</button>
-<button type="button" onclick="setButton(this, 'chocolate')">Chocolate</button>
-<button type="button" onclick="setButton(this, 'australia')">Australia</button>
-<button type="button" onclick="setButton(this, 'international')">International</button>
 <button type="button" onclick="setButton(this, 'limited-edition')">Limited Editions</button>
+<button type="button" onclick="setButton(this, 'chocolate')">Chocolate</button>
+<button type="button" onclick="setButton(this, 'australia')">Australian</button>
+<button type="button" onclick="setButton(this, 'international')">International</button>
 </h2>
 <script>
 function setButton(clickedButton, filter) {
@@ -191,7 +195,7 @@ function setButton(clickedButton, filter) {
     </div>
     <div class="image-container" data-filters="limited-edition australia">
         <img src="oak_rainbow.jpg" alt="OAK Painbow Paddle Pop">
-        <p>OAK<br>'Rainbow Paddle Pop'</p> <!-- Surprisingly tastes exactly like the rainbow paddle pop. Tastes good -->
+        <p>OAK<br>'Paddle Pop Rainbow'</p> <!-- Surprisingly tastes exactly like the rainbow paddle pop. Tastes good -->
     </div>
     <div class="image-container" data-filters="limited-edition australia">
         <img src="breaka_chupachups.jpg" alt="Chupa Chups Choco Vanilla">
