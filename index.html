@@ -125,6 +125,7 @@
 <button type="button" onclick="setButton(this, 'australia')">Australian</button>
 <button type="button" onclick="setButton(this, 'international')">International</button>
 <button type="button" onclick="setButton(this, 'protein')">High Protein</button>
+<button type="button" onclick="setButton(this, 'lactose')">Low Lactose</button>
 </h2>
 <h4 class="subtitle">(Click on the images to see my opinions)</h4>
 <script>
@@ -144,6 +145,12 @@ function setButton(clickedButton, filter) {
             milk.classList.add('hidden');
         }
     });
+    if (milkFilters.includes('lactose2') && filter === 'all') {
+            milks.classList.add('hidden');
+        }
+        if (icecreamFilters.includes('lactose2') && filter === 'lactose') {
+            milks.classList.remove('hidden');
+        }
 
     // set button clicked to disabled, all others enabled
     buttons.forEach(button => {
@@ -214,6 +221,13 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <p class="image-title">Bethune Lane Dairy<br>'Belgian Chocolate + Milk'</p>
     </div>
+    <div class="image-container hidden" data-filters="lactose2">
+        <div class="image-wrapper">
+            <img src="oak_lactose_free.jpg" alt="OAK Lactose Free Chocolate">
+            <div class="description-overlay"><p>As far as I can tell this tastes identical to the one with lactose in it. And no, I haven't tried them side-by-side. Yet.</p></div>
+        </div>
+        <p class="image-title">OAK<br>'Lactose Free Chocolate'</p>
+    </div>
 </div>
 
 <h2>Good</h2>
@@ -226,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <p class="image-title">Nedd's<br>'Choccy Milk'</p>
     </div>
-    <div class="image-container" data-filters="australia protein">
+    <div class="image-container" data-filters="australia protein lactose">
         <div class="image-wrapper">
             <img src="rokeby_vanilla.jpg" alt="Rokeby Vanilla">
             <div class="description-overlay"><p>My go-to for high protein flavoured milk.</p></div>
@@ -240,14 +254,14 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <p class="image-title">Big M<br>'Original Chocolate'</p>
     </div>
-    <div class="image-container" data-filters="australia protein">
+    <div class="image-container" data-filters="australia protein lactose">
         <div class="image-wrapper">
             <img src="rokeby_choc_honeycomb.jpg" alt="Rokeby Choc Honeycomb">
             <div class="description-overlay"><p>I don't know why this one is so much better than the normal Rokeby Chocolate, but it is.</p></div>
         </div>
         <p class="image-title">Rokeby<br>'Choc Honeycomb'</p>
     </div>
-    <div class="image-container" data-filters="australia">
+    <div class="image-container" data-filters="australia lactose">
         <div class="image-wrapper">
             <img src="classic_strawberry.jpg" alt="Classic Strawberry">
             <div class="description-overlay"><p>The best strawberry flavoured milk.</p></div>
@@ -329,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <h2>Mid</h2>
 <p class="subtitle">I would only buy these if the good ones are sold out.</p>
 <div class="listContainer">
-    <div class="image-container" data-filters="chocolate australia protein">
+    <div class="image-container" data-filters="chocolate australia protein lactose">
         <div class="image-wrapper">
             <img src="rokeby_choc.jpg" alt="Rokeby Chocolate">
             <div class="description-overlay"><p>Just not a good chocolate flavour. Go for the other Rokeby's.</p></div>
