@@ -145,10 +145,10 @@ function setButton(clickedButton, filter) {
             milk.classList.add('hidden');
         }
     });
-    if (milkFilters.includes('lactose2') && filter === 'all') {
+    if (milkFilters.includes('oaklactosefree') && filter === 'all') {
             milks.classList.add('hidden');
         }
-        if (icecreamFilters.includes('lactose2') && filter === 'lactose') {
+        if (icecreamFilters.includes('oaklactosefree') && filter === 'lactose') {
             milks.classList.remove('hidden');
         }
 
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <p class="image-title">Bethune Lane Dairy<br>'Belgian Chocolate + Milk'</p>
     </div>
-    <div class="image-container hidden" data-filters="lactose2">
+    <div class="image-container hidden" data-filters="oaklactosefree">
         <div class="image-wrapper">
             <img src="oak_lactose_free.jpg" alt="OAK Lactose Free Chocolate">
             <div class="description-overlay"><p>As far as I can tell this tastes identical to the one with lactose in it. And no, I haven't tried them side-by-side. Yet.</p></div>
@@ -360,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="image-container" data-filters="chocolate australia protein">
         <div class="image-wrapper">
             <img src="oak_plus.jpg" alt="Oak Plus Chocolate">
-            <div class="description-overlay"><p>If you want a protein milk, go Rokeby. If you want a tasty milk, go normal OAK. Rarely is there a reason to buy this one.</p></div>
+            <div class="description-overlay"><p>All of these "no added sugar" milks really need to try adding sugar. It'll make them taste so much better!</p></div>
         </div>
         <p class="image-title">OAK<br>'PLUS Chocolate'</p>
     </div>
@@ -433,6 +433,13 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="description-overlay"><p>If this was marketed as a mystery flavour, theres a 0% chance you'd get it right. No strong chocolate or caramel flavours or anything that would make you think of a Mars bar.</p></div>
         </div>
         <p class="image-title">Big M<br>'Mars'</p>
+    </div>
+    <div class="image-container" data-filters="chocolate australia protein lactose">
+        <div class="image-wrapper">
+            <img src="paults_protein_choc.jpg" alt="Pauls Plus Protein Chocolate">
+            <div class="description-overlay"><p>Probably the worst of the protein milks. Has a really nice aftertaste though so it'll make you think it tasted good after you finish it.</p></div>
+        </div>
+        <p class="image-title">Pauls<br>'Plus+ Protein Chocolate'</p>
     </div>
     <div class="image-container" data-filters="chocolate australia">
         <div class="image-wrapper">
