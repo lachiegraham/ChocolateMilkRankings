@@ -25,39 +25,70 @@
 
     <div class="content-area">
         <h1>NOT YET</h1>
-        <h1 id="demo"></h1>
+        <button id="but1">CLICK</button>
+        <p id="demo"></p>
+        <p id="errorMessage"></p>
     </div>
+    <script>
+        const AZURE_FUNCTION_BASE_URL = "https://woolworthsapiproxy.azurewebsites.net/api/GetProductData";
 
-<script>
-// Set the date we're counting down to
-var countDownDate = new Date("Jun 15, 2025 15:37:25").getTime();
+        // Get DOM elements
+        const fetchButton = document.getElementById('but1');
+        const jsonOutput = document.getElementById('demo');
+        const errorMessage = document.getElementById('errorMessage');
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+        // Function to display error message
+        function displayError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.remove('hidden');
+            jsonOutput.textContent = ''; // Clear previous output
+        }
 
-  // Get today's date and time
-  var now = new Date().getTime();
+        // Function to clear error message
+        function clearError() {
+            errorMessage.classList.add('hidden');
+            errorMessage.textContent = '';
+        }
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+        // Function to fetch data from Azure Function
+        async function fetchProductData() {
+            clearError();
+            jsonOutput.textContent = 'Fetching data... Please wait...';
 
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const productId = 42718;
 
-  // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
+            try {
+                const response = await fetch(`${AZURE_FUNCTION_BASE_URL}?productId=${productId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json' // Azure Functions expects this, though not strictly required for GET
+                    },
+                    // No body needed for GET request with query parameters
+                });
 
-  // If the count down is finished, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
-</script>
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`HTTP error! Status: ${response.status} - ${errorText || response.statusText}`);
+                }
 
+                const data = await response.json();
+                jsonOutput.textContent = JSON.stringify(data, null, 2); // Pretty print JSON
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                displayError(`Failed to fetch product data: ${error.message}. Check browser console for more details.`);
+                jsonOutput.textContent = 'Error occurred. See above.';
+            }
+        }
+
+        // Add event listener to the button
+        fetchButton.addEventListener('click', fetchProductData);
+
+        // Optional: Trigger fetch on Enter key press in input field
+        productIdInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                fetchButton.click();
+            }
+        });
+    </script>
 </body>
 </html>
