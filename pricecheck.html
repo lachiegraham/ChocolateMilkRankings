@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Price Check | Lachie Graham's Chocolate Milk Rankings</title>
+    <style>
+        /* PLACEHOLDER CSS STUFF */
+        .tabs-nav {
+            border: 5px solid red;
+            text-align: center;
+            padding: 0px 20px 0px 20px;
+        }
+        .makecenter {
+            text-align: center;
+        }
+        .content-area {
+            padding-top: 30px;
+        }
+
+        .splitter {
+  display: flex; /* Makes the container a flex container */
+  gap: 20px;     /* Adds space between the columns */
+  padding: 20px; /* Optional: adds padding around the columns */
+  max-width: 1000px; /* Optional: sets a max width for the whole layout */
+  margin: 0 auto;    /* Optional: centers the container on the page */
+}
+
+.column-content {
+  flex: 1; /* Each column takes up an equal amount of available space */
+  /* Or, if you want specific widths:
+  flex-basis: 50%;
+  Or if one column should be fixed and the other grows:
+  #column1 { flex-basis: 300px; flex-shrink: 0; }
+  #column2 { flex-grow: 1; }
+  */
+  border: 1px solid #ccc; /* Optional: for visual separation */
+  padding: 15px;         /* Optional: padding inside each column */
+  background-color: #f9f9f9; /* Optional: background for columns */
+  border-radius: 8px;    /* Optional: rounded corners */
+}
+    </style>
+</head>
+<body>
+    <div class="makecenter">
+    <nav>
+        <a class="tabs-nav" href="index.html">HOME</a>
+    </nav>
+    </div>
+
+    <div class="content-area makecenter">
+        <h1>LIVE PRICES - WOOLWORTHS</h1>
+        <p id="demo"></p>
+        <p id="errorMessage"></p>
+        <div class="splitter">
+            <div id="sale-div" class="column-content"><h1>ON SALE</h1></div>
+            <div id="full-price-div" class="column-content"><h1>NOT ON SALE</h1></div>
+        </div>
+    </div>
+    <script>
+        const AZURE_FUNCTION_BASE_URL = "https://woolworthsapiproxy.azurewebsites.net/api/GetProductData";
+
+        // Get DOM elements
+        const jsonOutput = document.getElementById('demo');
+        const errorMessage = document.getElementById('errorMessage');
+        const saleDiv = document.getElementById("sale-div");
+        const fullPriceDiv = document.getElementById("full-price-div");
+        
+
+        // Function to display error message
+        function displayError(message) {
+            errorMessage.textContent = message;
+            errorMessage.classList.remove('hidden');
+            jsonOutput.textContent = ''; // Clear previous output
+        }
+
+        // Function to clear error message
+        function clearError() {
+            errorMessage.classList.add('hidden');
+            errorMessage.textContent = '';
+        }
+
+        // Function to fetch data from Azure Function
+        async function fetchProductData(productId, title) {
+            clearError();
+            jsonOutput.textContent = 'Fetching data...';
+
+            try {
+                const response = await fetch(`${AZURE_FUNCTION_BASE_URL}?productId=${productId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json' // Azure Functions expects this, though not strictly required for GET
+                    },
+                    // No body needed for GET request with query parameters
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    throw new Error(`HTTP error! Status: ${response.status} - ${errorText || response.statusText}`);
+                }
+
+                const data = await response.json();
+
+                const p = document.createElement("p"); // create new <p>
+                // text = "";
+                if (data.Product.IsOnSpecial) {
+                    p.textContent = title + " - Price: $" + data.Product.Price.toFixed(2) + ", Down from: $" + data.Product.WasPrice.toFixed(2);
+                    saleDiv.appendChild(p); // put in the div
+                } else {
+                    p.textContent = title + " - Price: $" + data.Product.Price.toFixed(2);
+                    if (data.Product.Price == 0) {
+                        p.textContent = title + " - Could not get data";
+                    }
+                    fullPriceDiv.appendChild(p); // put in the div
+                }
+                
+                
+                
+                jsonOutput.textContent = "";
+                // jsonOutput.textContent = JSON.stringify(data, null, 2); // Pretty print JSON
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                displayError(`Failed to fetch product data: ${error.message}. Check browser console for more details.`);
+                jsonOutput.textContent = 'Error occurred while fetching data.';
+            }
+        }
+        // on page load
+        document.addEventListener('DOMContentLoaded', function() {
+
+            fetchProductData(48728, "OAK 600mL");
+            fetchProductData(727161, "OAK 750mL");
+            fetchProductData(556934, "Norco 500mL");
+            fetchProductData(613368, "Norco 750mL");
+            fetchProductData(667992, "Zymil Lactose Free 400mL");
+            fetchProductData(799749, "Classic 500mL");
+            fetchProductData(771258, "Rokeby 425mL");
+            fetchProductData(757139, "OAK 300mL");
+            fetchProductData(121502, "OAK PLUS Protein 500mL");
+            fetchProductData(420585, "Nedd's 500mL");
+            fetchProductData(6021370, "Dairy Farmers Protein 400mL");
+            fetchProductData(824759, "Big M 600mL");
+            fetchProductData(865382, "Coach House Dairy 300mL");
+            fetchProductData(118815, "Norco Minecraft 375mL");
+            fetchProductData(392129, "Beanstalk 490mL");
+            fetchProductData(479925, "Up&Go Protein Energize 500mL");
+
+        });
+    </script>
+</body>
+</html>
