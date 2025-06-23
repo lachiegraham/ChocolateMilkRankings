@@ -5,7 +5,7 @@
         /* layout to handle filter box*/
         .page-container {
             display: grid;
-            grid-template-columns: 250px 1fr; /* Defines two columns: 250px for sidebar, remaining space for products */
+            grid-template-columns: 200px 1fr; /* Defines two columns: 250px for sidebar, remaining space for products */
             gap: 20px; /* Space between the filter sidebar and product listing */
             /* max-width: 1200px; Limit overall width */
             /* margin: 0 auto; Center the container */
@@ -352,6 +352,13 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <p class="image-title">Big M<br>'Original Chocolate'</p>
     </div>
+    <div class="image-container" data-filters="australia protein lactose otherbrand">
+        <div class="image-wrapper">
+            <img src="pauls_protein_banana.jpg" alt="Pauls Plus Protein Banana & Honey">
+            <div class="description-overlay"><p>Tastes like a banana lolly, but sligtly toned down. Very nice. Doesn't feel like they had to sacrifice on the flavour to make it healthy. I'll probably stick to chocolate though.</p></div>
+        </div>
+        <p class="image-title">Pauls<br>'Plus+ Protein Banana & Honey'</p>
+    </div>
     <div class="image-container" data-filters="australia protein lactose rokeby">
         <div class="image-wrapper">
             <img src="rokeby_choc_honeycomb.jpg" alt="Rokeby Choc Honeycomb">
@@ -496,9 +503,23 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="image-container" data-filters="australia lactose chocolate otherbrand">
         <div class="image-wrapper">
             <img src="norco_choc_charger.jpg" alt="Minecraft Choc Charger">
-            <div class="description-overlay"><p>A little confused as to why this is lactose free when you'd think kids are typically best equipped to handle lactose but that's beside the point. The point is that this would be fine if it weren't for the random kink of sweetness you get after each sip.</p></div>
+            <div class="description-overlay"><p>A little confused as to why this is lactose free when you'd think kids are typically best equipped to handle lactose but that's beside the point. The point is that this would be fine if it weren't for the random kick of sweetness you get after each sip.</p></div>
         </div>
-        <p class="image-title">Norco + Minecraft<br>'Choc Charger'</p>
+        <p class="image-title">Norco + Minecraft<br>'Strawberry '</p>
+    </div>
+    <div class="image-container" data-filters="australia lactose strawberry otherbrand">
+        <div class="image-wrapper">
+            <img src="norco_strawberry_slam.jpg" alt="Minecraft Strawberry Slam">
+            <div class="description-overlay"><p>Very artificial tasting strawberry flavour with an emphasis on the sweetness. Not bad but I'm not going to buy it again.</p></div>
+        </div>
+        <p class="image-title">Norco + Minecraft<br>'Strawberry Slam'</p>
+    </div>
+    <div class="image-container" data-filters="australia lactose otherbrand">
+        <div class="image-wrapper">
+            <img src="norco_lime_lightning.jpg" alt="Minecraft Lime Lightning">
+            <div class="description-overlay"><p>This one is actually the best of the Minecraft milks. Lime flavoured milk slaps but you can never find it because I guess it sells poorly. Stop being afraid of green milk, people.</p></div>
+        </div>
+        <p class="image-title">Norco + Minecraft<br>'Lime Lightning'</p>
     </div>
     <div class="image-container" data-filters="limited-edition australia bigm">
         <div class="image-wrapper">
