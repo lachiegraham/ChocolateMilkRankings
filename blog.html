@@ -11,6 +11,11 @@
             padding-left: 20px;
             margin-bottom: 20px;
         }
+        .important {
+            /* align this box in the center of the page*/
+            margin-left: auto;
+            margin-right: auto;
+        }
         .blogPost img {
             max-width: 300px;
             height: auto;
@@ -45,12 +50,55 @@
         <p>Currently, the blog is not fully functional, but I am working on it. In the meantime, you can check out the latest posts below.</p>
         <p>If you have any suggestions or feedback, please feel free to contact me through the <a href="contact.html">contact page</a>.</p>
         <p>Thank you for your patience!</p> -->
+        <!-- <div class="blogPost">
+            <h3>June 24 2025. Forgotten milks</h3>
+            <p> </p>
+        </div> -->
+        <!-- <div class="blogPost">
+            <h3>June 24 2025. Analysis of the effects of inflation on the price of chocolate milks</h3>
+            <p> </p>
+        </div> -->
+
+        <div class="blogPost">
+            <h3>November 2025. New additions to the rankings page</h3>
+            <p>Nippy's iced chocolate - mid</p>
+            <p>OAK peppermint crisp - good</p>
+        </div>
+
         <div class="blogPost">
             <h3>September 3 2025. New additions to the rankings page</h3>
             <p>Oak chocolate UHT 500mL - good</p>
             <p>Nippy's iced honeycomb - good</p>
             <p>Rokeby banana honey + cinnamon - mid</p>
         </div>
+
+        <!-- <div class="blogPost important">
+            <h3>September 2025. Essay - Chocolate milk as a sports drink</h3>
+            <p>Here's an informal little write-up of anything related to "benefits" of chocolate milk.</p>
+            <p>Let's be real for a second, chocolate milk is not good for you. Doesn't matter how much protein they
+                shove into it, it doesn't matter how sugar-free it claims to be, it's still worse for you than plain milk. We know this. This is obvious. This is not what I'm here to argue.
+            </p>
+            <div id="collapsible2" style="display: none;">
+                <p>In high school, year 9 I believe, my PE teacher made the claim that chocolate milk was the best pre-sport drink. Better than gatorade, better than water, better than a banana smoothie.</p>
+                <p>whoever that olympic swimmer was, a little bit of theory for why, then we've just got science numbers ig.</p>
+            </div>
+
+            <p class="centeralign"><a id="readMore2" class="readMore">Read more</a></p>
+            <script>
+                var butt2 = document.getElementById("readMore2");
+                var coll2 = document.getElementById("collapsible2");
+
+                butt2.addEventListener("click", function() {
+                    if (coll2.style.display === "block") {
+                        coll2.style.display = "none";
+                        butt2.textContent = "Read more"
+                    } else {
+                        coll2.style.display = "block";
+                        butt2.textContent = "Read less"
+                    }
+                });
+            </script>
+        </div> -->
 
         <div class="blogPost">
             <h3>August 12 2025. New additions to the rankings page</h3>
@@ -86,10 +134,10 @@
             <p>Breaka chocolate - mid </p>
             <p>Minecraft Caramel Chug - mid </p>
         </div>
-        <div class="blogPost">
+        <div class="blogPost important">
             <h3>June 2025. A chocolate milk tour of Europe</h3>
             <p>My older brother has recently been on a holiday of Europe. He texted me regular updates on the chocolate milk situation throughout his travels. Europe seems to have a good selection of chocolate milks. Expand this post to see what kinds of texts I got.</p>
-            <div class="collapsible" style="display: none;">
+            <div id="collapsible1" style="display: none;">
                 <div class="innerBox">
                     <h4>June 4 2025. Day one</h4>
                     <p>Just 3 hours after touching down in London I received my first update. It's almost as if the first thing he did in this new country was to locate a chocolate milk.</p>
@@ -193,24 +241,21 @@
             <p class="centeralign"><a id="readMore1" class="readMore">Read more</a></p>
             <script>
                 var butt = document.getElementById("readMore1");
-                var coll = document.getElementsByClassName("collapsible");
+                var coll = document.getElementById("collapsible1");
 
                 butt.addEventListener("click", function() {
-                    if (coll[0].style.display === "block") {
-                        coll[0].style.display = "none";
+                    if (coll.style.display === "block") {
+                        coll.style.display = "none";
                         butt.textContent = "Read more"
                     } else {
-                        coll[0].style.display = "block";
+                        coll.style.display = "block";
                         butt.textContent = "Read less"
                     }
                 });
             </script>
         </div>
 
-        <!-- <div class="blogPost">
-            <h3>June 24 2025. Forgotten milks</h3>
-            <p> </p>
-        </div> -->
+        
 
         <div class="blogPost">
             <h3>June 23 2025. New additions to the rankings page</h3>
@@ -219,14 +264,14 @@
             <p>Up&Go protein energize choc - hall of shame</p>
         </div>
 
-        <div class="blogPost">
+        <div class="blogPost important">
             <h3>June 22 2025. New website feature - Price Check</h3>
             <p>Hi. I've been working on getting live price data from the big 2 supermarkets, and as of now I've got Woolworths working.</p>
             <p>The goal is basically to give myself an easy way to check which supermarket I should go to for my "essentials".</p>
             <p>Coles data will come once I figure out how to get it.</p>
         </div>
 
-        <div class="blogPost">
+        <div class="blogPost important">
             <h3>June 8 2025. Chocolate flavoured... coconut water?</h3>
             <img src="cocobella_chocolate_coconut.jpg">
             <p>I'm not really sure if this can be considered a chocolate milk, since, well, it's not milk.</p>
@@ -247,6 +292,14 @@
             <p>Pauls Zymil chocolate - good</p>
         </div>
         
+        <div class="blogPost important">
+            <h3>September 3 2025. Blog section</h3>
+            <p>Okay so this is from the future, I thought I'd put this first to explain the purpose of this page.</p>
+            <p>Mainly this will act as a changelog, for any new additions to the rankings.</p>
+            <p>Also, occasionally I might have something that I think is worth saying. Something I think is interesting. That will go here too.</p>
+            <p>This project was started in March of 2025, so the first 3 or so months are unlogged and unblogged. Nothing interesting happened for the first 3 months anyway.</p>
+            <p>That's all I've got to say for this one. Thanks for reading. Hope you have a nice day. Or evening. Or night. </p>
+        </div>
 
 </div>
 </body>
